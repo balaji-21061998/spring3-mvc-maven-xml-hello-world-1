@@ -3,10 +3,10 @@ pipeline {
     agent any
  
     parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'origin/master', name: 'BRANCH', type: 'PT_BRANCH'
-         
-        booleanParam(defaultValue: false, description: '', name: 'mvn_build')
-        booleanParam(defaultValue: false, description: '', name: 'publish_to_nexus')
+    string(defaultValue: 'origin/master', description: 'Git branch to build', name: 'BRANCH')
+
+        booleanParam(defaultValue: false, description: 'Build with Maven', name: 'mvn_build')
+        booleanParam(defaultValue: false, description: 'Publish to Nexus', name: 'publish_to_nexus')
   
     }
     tools {
